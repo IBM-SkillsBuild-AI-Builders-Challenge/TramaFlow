@@ -27,7 +27,7 @@ One canvas. One AI. Two completely different use cases — creative storytelling
 
 ### DEMO
 
-https://youtu.be/QfLtGRkLX-0
+https://youtu.be/wabqqtHRFJQ
 
 ## Problem Statement
 
