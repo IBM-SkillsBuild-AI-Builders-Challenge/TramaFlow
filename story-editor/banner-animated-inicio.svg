@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 400" width="100%" height="100%">
+  <defs>
+    <!-- Fondo oscuro corporativo/moderno -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+    <!-- Gradiente de los hilos de conexión -->
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+  </defs>
+
+  <!-- Rectángulo de fondo (ampliado a 1400px) -->
+  <rect width="1400" height="400" fill="url(#bg)" rx="15" />
+
+  <!-- Hilos Animados Desplazados a la derecha -->
+  <path d="M 800 200 C 900 200, 950 100, 1050 100" fill="none" stroke="url(#lineGrad)" stroke-width="6" stroke-linecap="round" stroke-dasharray="800" stroke-dashoffset="800">
+    <animate attributeName="stroke-dashoffset" values="800;0;0" dur="4s" repeatCount="indefinite" keyTimes="0;0.7;1" />
+  </path>
+  
+  <path d="M 800 200 C 900 200, 950 300, 1050 300" fill="none" stroke="url(#lineGrad)" stroke-width="6" stroke-linecap="round" stroke-dasharray="800" stroke-dashoffset="800">
+    <animate attributeName="stroke-dashoffset" values="800;0;0" dur="4s" begin="0.5s" repeatCount="indefinite" keyTimes="0;0.7;1" />
+  </path>
+
+  <path d="M 1050 100 C 1150 100, 1200 200, 1250 200" fill="none" stroke="url(#lineGrad)" stroke-width="6" stroke-linecap="round" stroke-dasharray="800" stroke-dashoffset="800">
+    <animate attributeName="stroke-dashoffset" values="800;0;0" dur="4s" begin="1.5s" repeatCount="indefinite" keyTimes="0;0.7;1" />
+  </path>
+  
+  <path d="M 1050 300 C 1150 300, 1200 200, 1250 200" fill="none" stroke="url(#lineGrad)" stroke-width="6" stroke-linecap="round" stroke-dasharray="800" stroke-dashoffset="800">
+    <animate attributeName="stroke-dashoffset" values="800;0;0" dur="4s" begin="2s" repeatCount="indefinite" keyTimes="0;0.7;1" />
+  </path>
+
+  <!-- Nodos de la Aplicación Desplazados a la derecha -->
+  <g transform="translate(800, 200)">
+    <rect x="-70" y="-25" width="140" height="50" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="3" />
+    <text x="0" y="5" font-family="system-ui, sans-serif" font-size="16" fill="#e2e8f0" font-weight="600" text-anchor="middle">Creación / Ticket</text>
+    <circle cx="-70" cy="0" r="15" fill="#38bdf8" opacity="0.3">
+        <animate attributeName="r" values="15;25;15" dur="2s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.3;0;0.3" dur="2s" repeatCount="indefinite" />
+    </circle>
+  </g>
+  
+  <g transform="translate(1050, 100)">
+    <rect x="-70" y="-25" width="140" height="50" rx="8" fill="#1e293b" stroke="#818cf8" stroke-width="3" />
+    <text x="0" y="5" font-family="system-ui, sans-serif" font-size="16" fill="#e2e8f0" font-weight="600" text-anchor="middle">Ruta A / Feature</text>
+  </g>
+
+  <g transform="translate(1050, 300)">
+    <rect x="-70" y="-25" width="140" height="50" rx="8" fill="#1e293b" stroke="#818cf8" stroke-width="3" />
+    <text x="0" y="5" font-family="system-ui, sans-serif" font-size="16" fill="#e2e8f0" font-weight="600" text-anchor="middle">Ruta B / Hotfix</text>
+  </g>
+
+  <g transform="translate(1250, 200)">
+    <rect x="-70" y="-25" width="140" height="50" rx="8" fill="#1e293b" stroke="#fbbf24" stroke-width="3" />
+    <text x="0" y="5" font-family="system-ui, sans-serif" font-size="16" fill="#fbbf24" font-weight="bold" text-anchor="middle">Resolución</text>
+  </g>
+
+  <!-- Texto Principal (Branding) intacto a la izquierda -->
+  <text x="80" y="210" font-family="system-ui, sans-serif" font-size="72" font-weight="800" fill="#ffffff" letter-spacing="2">TRAMAFLOW</text>
+  <text x="85" y="250" font-family="system-ui, sans-serif" font-size="22" font-weight="400" fill="#94a3b8" letter-spacing="1">Orquestación de Historias y Tickets</text>
+  
+  <!-- Detalle IA Animado -->
+  <path d="M 95 100 L 105 130 L 135 140 L 105 150 L 95 180 L 85 150 L 55 140 L 85 130 Z" fill="#fbbf24">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite" />
+  </path>
+  <circle cx="150" cy="115" r="5" fill="#38bdf8" />
+  <circle cx="60" cy="185" r="4" fill="#818cf8" />
+</svg>

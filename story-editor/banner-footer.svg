@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 250" width="100%" height="100%">
+  <defs>
+    <!-- Mismo fondo oscuro corporativo -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+    <!-- Gradiente que transiciona del azul al dorado de la IA -->
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#fbbf24" />
+    </linearGradient>
+  </defs>
+
+  <!-- Rectángulo de fondo -->
+  <rect width="1400" height="250" fill="url(#bg)" rx="15" />
+
+  <!-- Línea animada que cruza todo el banner -->
+  <path d="M 0 125 C 350 125, 350 220, 700 125 C 1050 30, 1050 125, 1400 125" fill="none" stroke="url(#lineGrad)" stroke-width="3" opacity="0.4" stroke-dasharray="1400" stroke-dashoffset="1400">
+    <animate attributeName="stroke-dashoffset" values="1400;0;0" dur="6s" repeatCount="indefinite" />
+  </path>
+
+  <!-- Nodo de Inicio (Izquierda) palpitando -->
+  <g transform="translate(150, 125)">
+    <circle cx="0" cy="0" r="20" fill="#38bdf8" opacity="0.2">
+        <animate attributeName="r" values="15;35;15" dur="2s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.2;0;0.2" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="0" cy="0" r="8" fill="#38bdf8" />
+  </g>
+
+  <!-- Textos Centrales -->
+  <text x="700" y="115" font-family="system-ui, sans-serif" font-size="38" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="1">¿Listo para trazar tu propia ruta?</text>
+  <text x="700" y="160" font-family="system-ui, sans-serif" font-size="18" font-weight="400" fill="#94a3b8" text-anchor="middle">Potenciado por IBM Granite y Watsonx.ai</text>
+
+  <!-- Estrella IA Final (Derecha) brillando -->
+  <g transform="translate(1250, 125)">
+    <path d="M 0 -30 L 10 -10 L 30 0 L 10 10 L 0 30 L -10 10 L -30 0 L -10 -10 Z" fill="#fbbf24">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite" />
+      <animateTransform attributeName="transform" type="scale" values="0.9;1.1;0.9" dur="3s" repeatCount="indefinite" />
+    </path>
+  </g>
+</svg>

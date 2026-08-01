@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 950" width="100%" height="100%">
+  <defs>
+    <!-- Fondo oscuro TramaFlow -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#09090b" />
+      <stop offset="40%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+
+    <!-- Resplandor (Glow) para los pulsos de datos y nodos IA -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    
+    <!-- Glow más fuerte para Watsonx -->
+    <filter id="glow-heavy" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Flechas de conexión -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#1d4ed8" />
+    </marker>
+    
+    <marker id="arrow-gold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#fbbf24" />
+    </marker>
+
+    <!-- Icono de Usuario -->
+    <g id="icon-user">
+      <circle cx="12" cy="8" r="4" fill="none" stroke="#e2e8f0" stroke-width="2"/>
+      <path d="M 4 20 C 4 16 8 14 12 14 C 16 14 20 16 20 20" fill="none" stroke="#e2e8f0" stroke-width="2" stroke-linecap="round"/>
+    </g>
+  </defs>
+
+  <!-- Contenedor Base -->
+  <rect width="1200" height="950" fill="url(#bg)" rx="16" />
+
+  <!-- Título Superior -->
+  <text x="600" y="50" font-family="system-ui, sans-serif" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">AI Approach &amp; Data Pipeline</text>
+  <text x="600" y="75" font-family="system-ui, sans-serif" font-size="14" font-weight="400" fill="#94a3b8" text-anchor="middle">Request Lifecycle: Chat Input to React Flow Rendering</text>
+
+  <!-- ========================================== -->
+  <!-- 1. RUTAS DE CONEXIÓN (PATHS)               -->
+  <!-- ========================================== -->
+  <g fill="none" stroke="#1d4ed8" stroke-width="2.5" marker-end="url(#arrow)">
+    <!-- User -> Next.js API -->
+    <path id="path-user-api" d="M 600,150 L 600,200" />
+    
+    <!-- Next.js API -> Watsonx -->
+    <path id="path-api-watsonx" d="M 600,420 L 600,470" />
+    
+    <!-- Watsonx -> Zod -->
+    <path id="path-watsonx-zod" d="M 600,550 L 600,600" stroke="#fbbf24" marker-end="url(#arrow-gold)" />
+    
+    <!-- Zod -> Zustand -->
+    <path id="path-zod-zustand" d="M 600,740 C 600,810 240,750 240,820" />
+    
+    <!-- Zustand -> resolveOverlaps -->
+    <path id="path-zustand-resolve" d="M 350,850 L 460,850" />
+    
+    <!-- resolveOverlaps -> Canvas -->
+    <path id="path-resolve-canvas" d="M 740,850 L 850,850" />
+  </g>
+
+  <!-- ========================================== -->
+  <!-- 2. ANIMACIÓN DE PULSOS DE DATOS (BRILLOS)  -->
+  <!-- ========================================== -->
+  <g filter="url(#glow)">
+    <!-- Pulso 1: Input -->
+    <circle r="5" fill="#38bdf8">
+      <animateMotion dur="1.2s" repeatCount="indefinite" begin="0s"><mpath href="#path-user-api"/></animateMotion>
+    </circle>
+    
+    <!-- Pulso 2: API a IA (Múltiples datos) -->
+    <circle r="5" fill="#818cf8">
+      <animateMotion dur="1.5s" repeatCount="indefinite" begin="0s"><mpath href="#path-api-watsonx"/></animateMotion>
+    </circle>
+    <circle r="5" fill="#2dd4bf">
+      <animateMotion dur="1.5s" repeatCount="indefinite" begin="0.75s"><mpath href="#path-api-watsonx"/></animateMotion>
+    </circle>
+
+    <!-- Pulso 3: IA responde (JSON Dorado) -->
+    <circle r="6" fill="#fbbf24">
+      <animateMotion dur="1.5s" repeatCount="indefinite" begin="0.2s"><mpath href="#path-watsonx-zod"/></animateMotion>
+    </circle>
+    <circle r="6" fill="#fbbf24">
+      <animateMotion dur="1.5s" repeatCount="indefinite" begin="0.9s"><mpath href="#path-watsonx-zod"/></animateMotion>
+    </circle>
+
+    <!-- Pulso 4: Zod a Zustand -->
+    <circle r="5" fill="#38bdf8">
+      <animateMotion dur="1.8s" repeatCount="indefinite" begin="0.1s"><mpath href="#path-zod-zustand"/></animateMotion>
+    </circle>
+    <circle r="5" fill="#818cf8">
+      <animateMotion dur="1.8s" repeatCount="indefinite" begin="1.0s"><mpath href="#path-zod-zustand"/></animateMotion>
+    </circle>
+
+    <!-- Pulso 5: Pipeline Final Horizontal -->
+    <circle r="5" fill="#fbbf24">
+      <animateMotion dur="1.2s" repeatCount="indefinite" begin="0.3s"><mpath href="#path-zustand-resolve"/></animateMotion>
+    </circle>
+    <circle r="5" fill="#2dd4bf">
+      <animateMotion dur="1.2s" repeatCount="indefinite" begin="0.5s"><mpath href="#path-resolve-canvas"/></animateMotion>
+    </circle>
+  </g>
+
+  <!-- ========================================== -->
+  <!-- 3. NODOS DE ARQUITECTURA                   -->
+  <!-- ========================================== -->
+  
+  <!-- NODO 1: User Input -->
+  <g transform="translate(600, 120)">
+    <rect x="-100" y="-30" width="200" height="60" rx="30" fill="#0f172a" stroke="#3b82f6" stroke-width="2" />
+    <use href="#icon-user" x="-75" y="-12" />
+    <text x="-35" y="5" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#f8fafc">User (chat input)</text>
+  </g>
+
+  <!-- NODO 2: Next.js API Route -->
+  <g transform="translate(600, 310)">
+    <rect x="-260" y="-110" width="520" height="220" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="2" />
+    <text x="-230" y="-75" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#818cf8">Next.js API Route (/api/chat)</text>
+    
+    <!-- Pasos internos -->
+    <g font-family="system-ui, monospace" font-size="14" fill="#cbd5e1">
+      <text x="-230" y="-40">├── mode field ("story" | "ticket")</text>
+      <text x="-230" y="-15">├── Input validation (length, empty check)</text>
+      <text x="-230" y="10">├── Graph context builder (existing nodes + titles)</text>
+      <text x="-230" y="35">└── Selects system prompt:</text>
+      
+      <!-- Sub-ramas de prompts -->
+      <text x="-190" y="60" fill="#a5b4fc">├── STORY_SYSTEM_PROMPT <tspan fill="#94a3b8">→ creative narrative rules</tspan></text>
+      <text x="-190" y="85" fill="#5eead4">└── TICKET_SYSTEM_PROMPT <tspan fill="#94a3b8">→ ticket triage rules</tspan></text>
+    </g>
+  </g>
+
+  <!-- NODO 3: IBM Granite (Watsonx) -->
+  <g transform="translate(600, 510)">
+    <!-- Brillo dorado -->
+    <rect x="-220" y="-40" width="440" height="80" rx="12" fill="#381c00" stroke="#fbbf24" stroke-width="2" filter="url(#glow-heavy)" />
+    <rect x="-220" y="-40" width="440" height="80" rx="12" fill="#291a00" stroke="#fbbf24" stroke-width="2" />
+    
+    <text x="0" y="-5" font-family="system-ui, sans-serif" font-size="18" font-weight="800" fill="#fcd34d" text-anchor="middle">IBM Granite (Llama 3.3 70B)</text>
+    <text x="0" y="18" font-family="system-ui, sans-serif" font-size="14" font-weight="500" fill="#fef3c7" text-anchor="middle">via watsonx.ai — structured JSON output</text>
+    
+    <!-- Etiqueta IA decorativa -->
+    <rect x="175" y="-55" width="30" height="20" rx="4" fill="#fbbf24" />
+    <text x="190" y="-41" font-family="system-ui, sans-serif" font-size="12" font-weight="800" fill="#451a03" text-anchor="middle">AI</text>
+  </g>
+
+  <!-- NODO 4: Zod Validation -->
+  <g transform="translate(600, 670)">
+    <rect x="-200" y="-70" width="400" height="140" rx="12" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+    <text x="-170" y="-40" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#38bdf8">Zod Schema Validation</text>
+    
+    <g font-family="system-ui, monospace" font-size="14" fill="#e2e8f0">
+      <text x="-170" y="-5">├── nodes[] <tspan fill="#94a3b8">→ mapped to React Flow</tspan></text>
+      <text x="-170" y="20">├── edges[] <tspan fill="#94a3b8">→ mapped to React Flow</tspan></text>
+      <text x="-170" y="45">└── deletedNodeIds[] <tspan fill="#94a3b8">→ removed from canvas</tspan></text>
+    </g>
+  </g>
+
+  <!-- NODO 5: Estado Final (Fila inferior) -->
+  <g font-family="system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="middle">
+    
+    <!-- Zustand Store -->
+    <g transform="translate(240, 850)">
+      <rect x="-110" y="-30" width="220" height="60" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="2" />
+      <text x="0" y="5" fill="#fcd34d">Zustand Store</text>
+    </g>
+
+    <!-- resolveOverlaps() -->
+    <g transform="translate(600, 850)">
+      <rect x="-140" y="-30" width="280" height="60" rx="8" fill="#0f172a" stroke="#8b5cf6" stroke-dasharray="6 4" stroke-width="2" />
+      <text x="0" y="5" fill="#c4b5fd" font-family="monospace">resolveOverlaps()</text>
+    </g>
+
+    <!-- React Flow Canvas -->
+    <g transform="translate(980, 850)">
+      <rect x="-130" y="-30" width="260" height="60" rx="8" fill="#1e1b4b" stroke="#0ea5e9" stroke-width="3" filter="url(#glow)" />
+      <rect x="-130" y="-30" width="260" height="60" rx="8" fill="#1e1b4b" stroke="#0ea5e9" stroke-width="2" />
+      <text x="0" y="5" fill="#7dd3fc">React Flow Canvas</text>
+    </g>
+
+  </g>
+</svg>

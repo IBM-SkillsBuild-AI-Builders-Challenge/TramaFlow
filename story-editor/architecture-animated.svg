@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" width="100%" height="100%">
+  <defs>
+    <!-- Fondo oscuro alineado con el branding -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+
+    <!-- Gradientes de conexiones -->
+    <linearGradient id="flowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#fbbf24" />
+    </linearGradient>
+
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Marcadores de Flechas (Arrowheads con refX exacta en la punta) -->
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#818cf8" />
+    </marker>
+
+    <marker id="arrow-gold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#fbbf24" />
+    </marker>
+
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#38bdf8" />
+    </marker>
+  </defs>
+
+  <rect width="1200" height="650" fill="url(#bg)" rx="15" />
+
+  <!-- Título de la Sección -->
+  <text x="600" y="55" font-family="system-ui, sans-serif" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="1">TramaFlow Architecture &amp; Data Flow</text>
+  <text x="600" y="85" font-family="system-ui, sans-serif" font-size="14" font-weight="400" fill="#94a3b8" text-anchor="middle">Dynamic Mode Resolution (Story vs. Ticket Workspace)</text>
+
+  <!-- LÍNEAS ANIMADAS TIPO CINTA TRANSPORTADORA HACIA LAS FLECHAS -->
+  
+  <!-- 1. Entry Gate -> State Store -->
+  <path d="M 230 200 L 450 200" fill="none" stroke="url(#flowGrad)" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8" marker-end="url(#arrow-purple)">
+    <animate attributeName="stroke-dashoffset" values="14;0" dur="0.8s" repeatCount="indefinite" />
+  </path>
+
+  <!-- 2. State Store -> AI Processing -->
+  <path d="M 650 200 L 870 200" fill="none" stroke="url(#flowGrad)" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8" marker-end="url(#arrow-gold)">
+    <animate attributeName="stroke-dashoffset" values="14;0" dur="0.8s" repeatCount="indefinite" />
+  </path>
+
+  <!-- 3. State Store -> Mode-Aware Components -->
+  <path d="M 550 250 L 550 360" fill="none" stroke="url(#flowGrad)" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8" marker-end="url(#arrow-blue)">
+    <animate attributeName="stroke-dashoffset" values="14;0" dur="0.8s" repeatCount="indefinite" />
+  </path>
+
+  <!-- 4. Components -> Dynamic Node Engine -->
+  <path d="M 550 440 L 550 500" fill="none" stroke="url(#flowGrad)" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8" marker-end="url(#arrow-purple)">
+    <animate attributeName="stroke-dashoffset" values="14;0" dur="0.8s" repeatCount="indefinite" />
+  </path>
+
+  <!-- BLOQUE: ENTRY GATE -->
+  <g transform="translate(50, 150)">
+    <rect width="180" height="100" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+    <text x="90" y="38" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#38bdf8" text-anchor="middle">ENTRY GATE</text>
+    <text x="90" y="60" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0" text-anchor="middle">WorkspaceSelector</text>
+    <text x="90" y="78" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">Mode Gate (null mode)</text>
+  </g>
+
+  <!-- BLOQUE: STATE STORE -->
+  <g transform="translate(450, 150)" filter="url(#glow)">
+    <rect width="200" height="100" rx="10" fill="#1e293b" stroke="#818cf8" stroke-width="2" />
+    <text x="100" y="38" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#818cf8" text-anchor="middle">STATE STORE</text>
+    <text x="100" y="60" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0" text-anchor="middle">useStoryStore.ts</text>
+    <text x="100" y="78" font-family="system-ui, sans-serif" font-size="11" fill="#fbbf24" font-weight="bold" text-anchor="middle">"story" | "ticket"</text>
+  </g>
+
+  <!-- BLOQUE: AI PROCESSING -->
+  <g transform="translate(870, 150)">
+    <rect width="200" height="100" rx="10" fill="#1e293b" stroke="#fbbf24" stroke-width="2" />
+    <text x="100" y="38" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#fbbf24" text-anchor="middle">AI PROCESSING</text>
+    <text x="100" y="60" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0" text-anchor="middle">api/chat/route.ts</text>
+    <text x="100" y="78" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">IBM Watsonx + System Prompts</text>
+  </g>
+
+  <!-- BLOQUE: MODE-AWARE COMPONENTS -->
+  <g transform="translate(320, 360)">
+    <rect width="460" height="80" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+    <text x="230" y="30" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#38bdf8" text-anchor="middle">MODE-AWARE COMPONENTS</text>
+    <text x="110" y="58" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0" text-anchor="middle">FlowCanvas.tsx</text>
+    <text x="350" y="58" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0" text-anchor="middle">ChatPanel.tsx</text>
+  </g>
+
+  <!-- BLOQUE: DYNAMIC NODES ENGINE -->
+  <g transform="translate(200, 500)">
+    <rect width="800" height="100" rx="10" fill="#0f172a" stroke="#818cf8" stroke-dasharray="4 4" stroke-width="2" />
+    <text x="400" y="25" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#94a3b8" text-anchor="middle">DYNAMIC NODE RENDERING ENGINE</text>
+    
+    <!-- Render Story Mode -->
+    <rect x="50" y="40" width="320" height="45" rx="6" fill="#312e81" stroke="#6366f1" stroke-width="1" />
+    <text x="210" y="60" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#818cf8" text-anchor="middle">STORY MODE</text>
+    <text x="210" y="75" font-family="system-ui, sans-serif" font-size="10" fill="#c7d2fe" text-anchor="middle">Scene Node (Indigo) • Choice Node (Violet)</text>
+
+    <!-- Render Ticket Mode -->
+    <rect x="430" y="40" width="320" height="45" rx="6" fill="#0c4a6e" stroke="#0284c7" stroke-width="1" />
+    <text x="590" y="60" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#38bdf8" text-anchor="middle">TICKET MODE</text>
+    <text x="590" y="75" font-family="system-ui, sans-serif" font-size="10" fill="#bae6fd" text-anchor="middle">Ticket Node (Sky) • Blocker Node (Teal)</text>
+  </g>
+</svg>
